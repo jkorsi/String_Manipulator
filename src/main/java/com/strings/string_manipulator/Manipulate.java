@@ -7,15 +7,16 @@ import static java.lang.Character.toLowerCase;
 import static java.lang.Character.toUpperCase;
 
 /**
+ * Class to manipulate Strings according to given instructions.
  *
  * @author Juho Suni
  */
 public class Manipulate {
 
     /**
-     * 
+     *
      * @param str
-     * @return String modified 
+     * @return String modified
      */
     public static String manipulator(String str) {
         if (str == null) {
@@ -23,16 +24,16 @@ public class Manipulate {
         }
         char[] modifiedArray = new char[str.length()];
         int i;
-        
+
         //Counter to keep up with varying lower and uppercase letters    
         int letterCounter = 0;
         for (i = 0; i < str.length(); i++) {
             char c = str.charAt(i);
 
-            if (isLetter(c)) {               
+            if (isLetter(c)) {
                 c = getUpOrLow(c, letterCounter);
                 letterCounter += 1;
-                
+
             } else if (isDigit(c)) {
                 int num = getNumericValue(c);
                 if (isOdd(num)) {
@@ -50,29 +51,30 @@ public class Manipulate {
 
         return String.copyValueOf(modifiedArray);
     }
+
     /**
-     * Manipulates the character to upper 
-     * or lower case according to given "index"
-     * 
+     * Manipulates the character to upper or lower case according to given
+     * "index"
+     *
      * @param ch
      * @param letterCount
-     * @return char modified 
+     * @return char modified
      */
-    static char getUpOrLow(char ch, int letterCount){
+    static char getUpOrLow(char ch, int letterCount) {
         char a = ch;
-        if(isOdd(letterCount)){
+        if (isOdd(letterCount)) {
             a = toLowerCase(a);
-        }else{
+        } else {
             a = toUpperCase(a);
-        }       
+        }
         return a;
     }
-    
+
     /**
      * Checks if number is odd or not
-     * 
+     *
      * @param a
-     * @return boolean  
+     * @return boolean
      */
     static boolean isOdd(int a) {
         boolean isOdd = true;

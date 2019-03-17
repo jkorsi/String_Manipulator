@@ -5,9 +5,6 @@
  */
 package com.strings.string_manipulator;
 
-import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
-
 /**
  *
  * @author Juho Suni

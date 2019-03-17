@@ -1,9 +1,5 @@
 package com.strings.string_manipulator;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -15,54 +11,29 @@ public class ManipulateTest {
     
     public ManipulateTest() {
     }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
-
     /**
      * Test of manipulator method, of class Manipulate.
      */
     @org.junit.Test
-    public void testManipulator() {
-        
+    public void testManipulator() {    
         System.out.println("manipulator");
-        String strA = "testisyöte";
-        String expResultA = "TeStIsYöTe";
+        testString("testisyöte", "TeStIsYöTe");   
+        testString(null, null);        
+        testString("num 5 on pariton", "NuM o On PaRiToN");        
+        testString("! merkillinen jono", "! MeRkIlLiNeN jOnO");       
+        testString("num 4 on parillinen", "NuM e On PaRiLlInEn");
+    }
+    
+    /**
+     * Method to test if strings in a parameter are equal
+     * @param a
+     * @param b 
+     */
+    private void testString(String a, String b) {
+        String strA = a;
+        String expResultA = b;
         String resultA = Manipulate.manipulator(strA);
         assertEquals(expResultA, resultA);
-        
-        String strB = null;
-        String expResultB = null;
-        String resultB = Manipulate.manipulator(strB);
-        assertEquals(expResultB, resultB);
-        
-        String strC = "num 5 on pariton";
-        String expResultC = "NuM o On PaRiToN";
-        String resultC = Manipulate.manipulator(strC);
-        assertEquals(expResultC, resultC);
-        
-        String strD = "! merkillinen jono";
-        String expResultD = "! MeRkIlLiNeN jOnO";
-        String resultD = Manipulate.manipulator(strD);
-        assertEquals(expResultD, resultD);
-        
-        String strE = "num 4 on parillinen";
-        String expResultE = "NuM e On PaRiLlInEn";
-        String resultE = Manipulate.manipulator(strE);
-        assertEquals(expResultE, resultE);
     }
 
     /**
@@ -82,10 +53,21 @@ public class ManipulateTest {
      * Test of isOdd method, of class Manipulate.
      */
     @Test
-    public void testIsOdd() {
+    public void testIsOdd() {       
         System.out.println("isOdd");
-        int a = 0;
-        boolean expResult = false;
+        oddTest(5, true);
+        oddTest(0, false);
+        oddTest(-2, false);
+        oddTest(-3, true);
+    }
+    
+    /**
+     * Method to test if numbers in parameter is 
+     * @param a int to be tested
+     * @param b boolean, true if odd, false if even
+     */
+    private void oddTest(int a, boolean b) {
+        boolean expResult = b;
         boolean result = Manipulate.isOdd(a);
         assertEquals(expResult, result);
     }
